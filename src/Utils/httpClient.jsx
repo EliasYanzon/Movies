@@ -9,7 +9,6 @@ export default function get(path) {
     },
   })
   .then((result) => result.json())
-  .catch((err) => console.log(err))
   
 }
 

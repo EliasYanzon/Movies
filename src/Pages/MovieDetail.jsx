@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import get from "../Utils/httpClient";
 import Spinner from "../Components/Spinner";
-import useQuery from "../Hooks/useQuery";
+
+import getMovieImg from "../Utils/getMovieImg";
 
 export default function MovieDetail() {
   const { movieId } = useParams();
@@ -30,8 +31,8 @@ export default function MovieDetail() {
   }
 
 
-
-  const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
+  const imageUrl = getMovieImg(movie.poster_path, 500);
+  // const imageUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
   return (
     <div className={styles.detailContainer}>
       <img className={`${styles.col} ${styles.movieImage}`} src={imageUrl} alt={movie.title} />
