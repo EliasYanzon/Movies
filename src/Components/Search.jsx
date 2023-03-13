@@ -18,7 +18,7 @@ export default function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/?search" + searchText);
+    navigate("/?search=" + searchText);
   };
 
   return (

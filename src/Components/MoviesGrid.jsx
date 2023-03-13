@@ -17,7 +17,7 @@ export default function MoviesGrid() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  const query = useQuery();
+  const query = useQuery(); //captura la busqueda de el search sobre el link 
   const search = query.get("search");
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function MoviesGrid() {
     const searchUrl = search
       ? "/search/movie?query=" + search
       : "/discover/movie";
-    get(Search).then((data) => {
+    get(searchUrl).then((data) => {
       setMovies(data.results);
       // movies = data.results;
       console.log(movies)
